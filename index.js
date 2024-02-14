@@ -1,6 +1,5 @@
 const { execSync } = require('child_process');
 const core = require('@actions/core')
-const releasePlease = require('release-please');
 
 try {
   const releaseType = core.getInput('release-type');
