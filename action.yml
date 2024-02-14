@@ -3,9 +3,6 @@ name: 'Update Version'
 description: 'Update the package version'
 
 inputs:
-  file-path:
-    description: 'Path to the file to update'
-    required: true
   release-type:
     description: 'Type of release (patch, minor, major)'
     required: false
