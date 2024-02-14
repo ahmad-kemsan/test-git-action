@@ -1,6 +1,6 @@
 {
   "name": "update-version",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "A git action to update the package version.",
   "main": "index.js",
   "scripts": {
