@@ -35,7 +35,7 @@ const newVersion = createVersion(releaseAs);
 
 console.log(`Releasing with version: ${newVersion}`);
   
-execSync(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token}`, { stdio: 'inherit' });
+execSync(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --no-labels`, { stdio: 'inherit' });
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);
