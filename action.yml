@@ -3,15 +3,15 @@ name: 'Update Version'
 description: 'Update the package version'
 
 inputs:
-  release-type:
+  release-as:
     description: 'Type of release (patch, minor, major)'
     required: false
     default: 'patch'
   token:
-    description: 'token having write permissions'
+    description: 'Token having specific permissions'
     required: true
   url:
-    description: 'repo url'
+    description: 'Repo url'
     required: true
 
 runs:
