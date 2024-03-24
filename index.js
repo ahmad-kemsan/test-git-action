@@ -33,7 +33,7 @@ try {
 
 const newVersion = createVersion(releaseAs);
 
-core.setOutput('releasedVersion', newVersion);
+core.setOutput('released-version', newVersion);
 
 console.log(`Releasing with version: ${newVersion}`);
 
