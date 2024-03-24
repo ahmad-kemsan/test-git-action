@@ -29908,12 +29908,14 @@ try {
   const releaseAs = core.getInput('release-as');
   const token = core.getInput('token');
   const repoUrl = core.getInput('url');
-  
+
 const newVersion = createVersion(releaseAs);
 
+core.setOutput('releasedVersion', newVersion);
+
 console.log(`Releasing with version: ${newVersion}`);
-  
-execSync(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token}`, { stdio: 'inherit' });
+
+execSync(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);
