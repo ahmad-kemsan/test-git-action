@@ -32,8 +32,7 @@ try {
   const repoUrl = core.getInput('url');
 
 const newVersion = createVersion(releaseAs);
-
-core.setOutput('released-version', newVersion);
+core.setOutput('released-version', newVersion.version);
 
 console.log(`Releasing with version: ${newVersion}`);
 
