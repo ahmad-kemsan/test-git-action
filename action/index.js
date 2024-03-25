@@ -29734,13 +29734,13 @@ var core = __nccwpck_require__(4097);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("child_process");
 // EXTERNAL MODULE: ./node_modules/semver/index.js
-var semver = __nccwpck_require__(4873);
+var node_modules_semver = __nccwpck_require__(4873);
 ;// CONCATENATED MODULE: ./src/version.js
 
 
 
 function getLatestVersion() {
-  const latestTag = (0,external_child_process_namespaceObject.execSync)(`cat .release-please-manifest.json | jq -r '."."'`, { stdio: 'pipe' });
+  const latestTag = execSync(`cat .release-please-manifest.json | jq -r '."."'`, { stdio: 'pipe' });
   const version = latestTag.toString().trim();
   if (!version) {
     throw new Error('No version found in the repository.');
@@ -29765,15 +29765,15 @@ function createVersion(type, increment = 1) {
 
 
 function releaseVersion(newVersion, repoUrl, token) {
-  core.setOutput('released-version', newVersion.version);
+  // core.setOutput('released-version', newVersion.version);
 
-  console.log(`Releasing with version: ${newVersion}`);
+  // console.log(`Releasing with version: ${newVersion}`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.name "ahmad-kemsan"`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.email "ahmadkemsan@gmail.com"`);
   (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump"`);
   (0,external_child_process_namespaceObject.execSync)(`git push`);
 
-  (0,external_child_process_namespaceObject.execSync)(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
+  (0,external_child_process_namespaceObject.execSync)(`npx release-please release-pr --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
 }
 ;// CONCATENATED MODULE: ./src/index.js
 
@@ -29785,9 +29785,9 @@ try {
   const token = core.getInput('token');
   const repoUrl = core.getInput('url');
 
-  const newVersion = createVersion(releaseAs);
+  // const newVersion = createVersion(releaseAs);
 
-  core.setOutput('released-version', newVersion.version);
+  // core.setOutput('released-version', newVersion.version);
 
   releaseVersion(newVersion, repoUrl, token);
 } catch (error) {
