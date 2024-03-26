@@ -29767,10 +29767,11 @@ function createVersion(type, increment = 1) {
 function releaseVersion(newVersion, repoUrl, token) {
   core.setOutput('released-version', newVersion.version);
 
-  console.log(`Releasing with version1: ${newVersion}`);
+  console.log(`Releasing with version2: ${newVersion}`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.name "ahmad-kemsan"`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.email "ahmadkemsan@gmail.com"`);
-  (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump (Release-As: ${newVersion})"`);
+  (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump 
+  Release-As: ${newVersion}"`);
   
   (0,external_child_process_namespaceObject.execSync)(`git push`);
 
