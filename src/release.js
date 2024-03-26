@@ -7,7 +7,7 @@ export function releaseVersion(newVersion, repoUrl, token) {
   console.log(`Releasing with version1: ${newVersion}`);
   execSync(`git config user.name "ahmad-kemsan"`);
   execSync(`git config user.email "ahmadkemsan@gmail.com"`);
-  execSync(`git commit --allow-empty -m "chore: inside action empty commit version bump (Release-As: ${newVersion}")"`);
+  execSync(`git commit --allow-empty -m "chore: inside action empty commit version bump (Release-As: ${newVersion})"`);
   
   execSync(`git push`);
 
