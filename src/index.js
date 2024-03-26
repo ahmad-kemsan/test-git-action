@@ -11,7 +11,7 @@ try {
 
   // core.setOutput('released-version', newVersion.version);
 
-  releaseVersion(newVersion, repoUrl, token);
+  releaseVersion(repoUrl, token);
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);

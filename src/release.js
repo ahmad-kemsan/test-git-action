@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import core from '@actions/core';
 
-export function releaseVersion(newVersion, repoUrl, token) {
+export function releaseVersion(repoUrl, token) {
   // core.setOutput('released-version', newVersion.version);
 
   // console.log(`Releasing with version: ${newVersion}`);

@@ -29764,7 +29764,7 @@ function createVersion(type, increment = 1) {
 
 
 
-function releaseVersion(newVersion, repoUrl, token) {
+function releaseVersion(repoUrl, token) {
   // core.setOutput('released-version', newVersion.version);
 
   // console.log(`Releasing with version: ${newVersion}`);
@@ -29789,7 +29789,7 @@ try {
 
   // core.setOutput('released-version', newVersion.version);
 
-  releaseVersion(newVersion, repoUrl, token);
+  releaseVersion(repoUrl, token);
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);
