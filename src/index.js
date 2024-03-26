@@ -7,11 +7,11 @@ try {
   const token = core.getInput('token');
   const repoUrl = core.getInput('url');
 
-  // const newVersion = createVersion(releaseAs);
+  const newVersion = createVersion(releaseAs);
 
-  // core.setOutput('released-version', newVersion.version);
+  core.setOutput('released-version', newVersion.version);
 
-  releaseVersion(repoUrl, token);
+  releaseVersion(newVersion, repoUrl, token);
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);

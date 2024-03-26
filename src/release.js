@@ -1,10 +1,10 @@
 import { execSync } from 'child_process';
 import core from '@actions/core';
 
-export function releaseVersion(repoUrl, token) {
-  // core.setOutput('released-version', newVersion.version);
+export function releaseVersion(newVersion, repoUrl, token) {
+  core.setOutput('released-version', newVersion.version);
 
-  // console.log(`Releasing with version: ${newVersion}`);
+  console.log(`Releasing with version: ${newVersion}`);
   execSync(`git config user.name "ahmad-kemsan"`);
   execSync(`git config user.email "ahmadkemsan@gmail.com"`);
   execSync(`git commit --allow-empty -m "chore: inside action empty commit version bump"`);
