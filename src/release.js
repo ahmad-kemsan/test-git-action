@@ -11,5 +11,5 @@ export function releaseVersion(newVersion, repoUrl, token) {
   // TODO: check release-as commit 
   execSync(`git push`);
 
-  execSync(`npx release-please release-pr release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
+  execSync(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
 }
