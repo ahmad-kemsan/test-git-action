@@ -13,6 +13,15 @@ inputs:
   url:
     description: 'Repo url'
     required: true
+  git-user-name:
+    description: 'The user name to be configured for Git.'
+    required: true
+  git-user-email:
+    description: 'The email address to be configured for Git.'
+  just-bump-version:
+    description: 'Specify if it is just a version bump. Set to "true" or "false".'
+    default: false
+    required: true
 
 outputs:
   released-version:

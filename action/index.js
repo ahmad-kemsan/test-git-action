@@ -29764,16 +29764,25 @@ function createVersion(type, increment = 1) {
 
 
 
-function releaseVersion(newVersion, repoUrl, token) {
+const token = core.getInput('token');
+const repoUrl = core.getInput('url');
+const gitUserName = core.getInput('git-user-name');
+const gitUserEmail = core.getInput('git-user-email');
+const justBumpVersion = core.getInput('just-bump-version');
+
+function releaseVersion(newVersion) {
   core.setOutput('released-version', newVersion.version);
 
   console.log(`Releasing with version2: ${newVersion}`);
-  (0,external_child_process_namespaceObject.execSync)(`git config user.name "ahmad-kemsan"`);
-  (0,external_child_process_namespaceObject.execSync)(`git config user.email "ahmadkemsan@gmail.com"`);
-  (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump"`);
-  // TODO: check release-as commit 
-  (0,external_child_process_namespaceObject.execSync)(`git push`);
 
+  if (justBumpVersion === 'true') {
+    console.log(`yes, it is just a bump version`);
+    (0,external_child_process_namespaceObject.execSync)(`git config user.name ${gitUserName}`);
+    (0,external_child_process_namespaceObject.execSync)(`git config user.email ${gitUserEmail}`);
+    (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: Just a bump version"`);
+    // TODO: check release-as commit 
+    (0,external_child_process_namespaceObject.execSync)(`git push`);
+  }
   (0,external_child_process_namespaceObject.execSync)(`npx release-please release-pr --release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
 }
 ;// CONCATENATED MODULE: ./src/index.js
@@ -29783,14 +29792,11 @@ function releaseVersion(newVersion, repoUrl, token) {
 
 try {
   const releaseAs = core.getInput('release-as');
-  const token = core.getInput('token');
-  const repoUrl = core.getInput('url');
 
   const newVersion = createVersion(releaseAs);
 
   core.setOutput('released-version', newVersion.version);
-
-  releaseVersion(newVersion, repoUrl, token);
+  releaseVersion(newVersion);
 } catch (error) {
   console.error('Error updating version:', error.message);
   process.exit(1);
