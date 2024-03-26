@@ -29770,12 +29770,11 @@ function releaseVersion(newVersion, repoUrl, token) {
   console.log(`Releasing with version2: ${newVersion}`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.name "ahmad-kemsan"`);
   (0,external_child_process_namespaceObject.execSync)(`git config user.email "ahmadkemsan@gmail.com"`);
-  (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump 
-  Release-As: ${newVersion}"`);
-  
+  (0,external_child_process_namespaceObject.execSync)(`git commit --allow-empty -m "chore: inside action empty commit version bump"`);
+  // TODO: check release-as commit 
   (0,external_child_process_namespaceObject.execSync)(`git push`);
 
-  (0,external_child_process_namespaceObject.execSync)(`npx release-please release-pr --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
+  (0,external_child_process_namespaceObject.execSync)(`npx release-please release-pr release-as ${newVersion} --repo-url ${repoUrl} --token ${token} --skip-labeling`, { stdio: 'inherit' });
 }
 ;// CONCATENATED MODULE: ./src/index.js
 
