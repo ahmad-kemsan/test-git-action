@@ -9,24 +9,24 @@ inputs:
     default: 'patch'
   token:
     description: 'Token having specific permissions'
-    required: true
+    required: false
   url:
     description: 'Repo url'
-    required: true
+    required: false
   git-user-name:
     description: 'The user name to be configured for Git.'
-    required: true
+    required: false
   git-user-email:
     description: 'The email address to be configured for Git.'
-  just-bump-version:
-    description: 'Specify if it is just a version bump. Set to "true" or "false".'
+  empty-commit:
+    description: 'Specify if it is just an empty commit. Set to "true" or "false".'
     default: false
     required: true
-
-outputs:
-  released-version:
-    description: 'Release version'
+  operation-mode:
+    description: "Operation mode of the action (update-version or push-tags)"
+    required: true
+    default: "update-version"
 
 runs:
   using: 'node16'
-  main: 'action/index.js'
+  main: 'build/index.js'
