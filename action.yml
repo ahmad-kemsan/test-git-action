@@ -26,6 +26,9 @@ inputs:
     description: "Operation mode of the action (update-version or push-tags)"
     required: true
     default: "update-version"
+outputs:
+  tagging-status:
+    description: "Tells the status of git tag command execution."
 
 runs:
   using: 'node16'

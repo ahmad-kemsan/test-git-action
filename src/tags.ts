@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import core from '@actions/core';
 
 export function getLatestRemoteTag(): string {
     console.log('getting latest tag');
@@ -11,9 +12,17 @@ export function getLatestRemoteTag(): string {
     return version;
 }
 
-export function pushTag(latestManifestVersion: string) {
-    console.log('Pushing tag');
-    execSync(`git describe --tags --abbrev=0`);
-    execSync(`git tag ${latestManifestVersion}`);
-    execSync(`git push --tags`);
+export function pushTag(latestManifestVersion: string): void {
+    try {
+        console.log('Pushing tag');
+        execSync(`git describe --tags --abbrev=0`);
+        execSync(`git tag ${latestManifestVersion}`);
+        execSync(`git push --tags`);
+        core.setOutput('tagging-status', 'true')
+        
+    } catch (error) {
+        core.setOutput('tagging-status', 'false')
+        console.error('Error pushing tag:', error);
+        
+    }
 }
