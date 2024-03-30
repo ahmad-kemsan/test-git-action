@@ -18,6 +18,7 @@ try {
     // comapre the two & if remote is < manifest push the tags
     const latestRemoteTagVersion: string = getLatestRemoteTag()
     const latestManifestVersion: string = getLatestVersion()
+    // add check for remote is not empty
     if (latestManifestVersion > latestRemoteTagVersion) {
       pushTag(latestManifestVersion)
     }
