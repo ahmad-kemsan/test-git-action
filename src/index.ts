@@ -5,10 +5,8 @@ import { getLatestRemoteTag, pushTag } from './tags.js';
 import semver from 'semver';
 
 try {
-  // const releaseAs: string = core.getInput('release-as');
-  // const operationMode: string = core.getInput('operation-mode');
-  const releaseAs: string = 'patch';
-  const operationMode: string = 'push-tags';
+  const releaseAs: string = core.getInput('release-as');
+  const operationMode: string = core.getInput('operation-mode');
 
   if (operationMode === 'update-version') {
   const newVersion: semver.SemVer = createVersion(releaseAs);
