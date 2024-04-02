@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import core from '@actions/core';
-import { SemVer } from 'semver';
+import semver from 'semver';
 
 const token: string = core.getInput('token');
 const repoUrl: string = core.getInput('url');
@@ -9,7 +9,7 @@ const gitUserEmail: string = core.getInput('git-user-email');
 const emptyCommit: boolean = core.getInput('empty-commit') === 'true';
 
 
-export function releaseVersion(newVersion: SemVer): void {
+export function releaseVersion(newVersion: semver.SemVer): void {
 
   if (emptyCommit) {
     console.log('Yes, it is just a bump version.');
