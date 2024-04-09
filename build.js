@@ -6,7 +6,7 @@ await esbuild.build({
 	bundle: true,
 	platform: "node",
 	target: "node18",
-	outfile: "build/index.js",
+	outfile: "action/index.js",
 	sourcemap: 'inline',
 	plugins: [typecheckPlugin()]
 });
