@@ -1,17 +1,17 @@
 name: 'Update Version'
 
-description: 'Update the package version'
+description: 'Update the package version.'
 
 inputs:
   release-as:
-    description: 'Type of release (patch, minor, major)'
+    description: 'Type of release (patch, minor).'
     required: false
     default: 'patch'
   token:
-    description: 'Token having specific permissions'
+    description: 'Token used by release-please to update version.'
     required: false
   url:
-    description: 'Repo url'
+    description: 'Repository url.'
     required: false
   git-user-name:
     description: 'The user name to be configured for Git.'
