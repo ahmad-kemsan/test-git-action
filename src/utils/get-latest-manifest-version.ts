@@ -1,4 +1,3 @@
-// import { execSync } from 'child_process';
 import { readFileSync } from 'fs';
 
 /**
@@ -9,8 +8,6 @@ import { readFileSync } from 'fs';
  */
 
 export function getLatestManifestVersion(): string {
-  // const latestTag: Buffer = execSync(`cat .release-please-manifest.json | jq -r '."."'`, { stdio: 'pipe' });
-  // const version: string = latestTag.toString().trim();
   const manifest = JSON.parse(readFileSync('.release-please-manifest.json', 'utf8'));
   const version: string = manifest["."].trim();
   if (!version) {
