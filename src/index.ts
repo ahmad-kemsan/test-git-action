@@ -11,10 +11,9 @@ import { pushTag } from './utils/push-tags';
  * the script logs the error and exits with a status code of 1, indicating failure.
  */
 try {
-  
   // Specifies the type of version update (patch or minor) for the `update-version` operation.
   const releaseAs: string = core.getInput('release-as');
-  
+
   //Determines the operation to perform. Valid options are 'update-version' and 'push-tags'.
   const operationMode: string = core.getInput('operation-mode');
 

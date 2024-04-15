@@ -11,6 +11,7 @@ import { execSync } from 'child_process';
 export function getLatestRemoteTag(): string {
     try {
         console.log('Getting latest remote tag.');
+        execSync(`git fetch origin --tags`);
         const latestTag: Buffer = execSync(`git tag | sort -Vr | head -n 1`);
         const version: string = latestTag.toString().trim();
         if (!version) {
