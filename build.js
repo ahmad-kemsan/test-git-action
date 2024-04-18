@@ -7,7 +7,6 @@ await esbuild.build({
 	platform: "node",
 	target: "node18",
 	outfile: "action/index.js",
-	sourcemap: 'inline',
-	format: 'esm', 
+	sourcemap: 'inline', 
 	plugins: [typecheckPlugin()]
 });

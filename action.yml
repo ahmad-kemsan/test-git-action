@@ -31,5 +31,5 @@ outputs:
     description: "Tells the status of git tag command execution."
 
 runs:
-  using: 'node16'
+  using: 'node18'
   main: 'action/index.js'
