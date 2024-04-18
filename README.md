@@ -31,8 +31,7 @@ This operation increments the project version and creates a pull request with th
     empty-commit: ${{ github.event.inputs.xyz }} # Create an empty commit if set to 'true'
     token: ${{ secrets.TOKEN_GITHUB }}      # GitHub token with appropriate permissions
     url: https://github.com/.....git        # Repository URL
-
-
+```
 ### Pushing tags
 
 This operation pushes tag to the repository. Configure it as follows:
@@ -44,5 +43,5 @@ This operation pushes tag to the repository. Configure it as follows:
     operation-mode: push-tags                 # Operation mode.
     git-user-name: github-actions             # Git username for commits
     git-user-email: github-actions@github.com # Git email for commits
-
-tagging-status: This output indicates whether the tag pushing operation was successful. It returns true for a successful operation and false otherwise. You can use this output to conditionally execute subsequent steps in your GitHub Actions workflow based on whether the tagging was successful.
+```
+- `tagging-status`: This output indicates whether the tag pushing operation was successful. It returns true for a successful operation and false otherwise. You can use this output to conditionally execute subsequent steps in your GitHub Actions workflow based on whether the tagging was successful.
